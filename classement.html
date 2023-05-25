@@ -6,9 +6,10 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/17e733a281.js" crossorigin="anonymous"></script>
-    <title>Escape Monkey</title>
+    <title>Classement | Escape Monkey</title>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Escape Monkey</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,29 +100,43 @@
             </div>
         </div>
     </div>
+    <!-- Identique à la barre de navigation de la page principale -->
 
-    <!-- Le reste de votre HTML va ici -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="display-4">Classement Escape Monkey</h1>
+                <p class="lead">Découvrez les meilleurs joueurs d'Escape Monkey !</p>
+                <hr class="my-4">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom du joueur</th>
+                            <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Insérez ici les rangs des joueurs sous la forme d'éléments de liste -->
+                        <!-- Exemple: -->
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Joueur 1</td>
+                            <td>1234</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Joueur 2</td>
+                            <td>1176</td>
+                        </tr>
+                        <!-- Continuez à ajouter des rangs de joueurs ici -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
-
-
-    <div class="jumbotron">
-        <h1 class="display-4">Escape Monkey</h1>
-        <p class="lead">Aider Sinj a atteindre l'immortalité en ramassant le plus de banane ! </p>
-        <hr class="my-4">
-        <p>Connectez-vous ou inscrivez-vous pour commencer à jouer et sauver le singe.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Jouez maintenant</a>
-    </div>
-
-    <div class="container game-container">
-        <!-- Votre jeu ira ici -->
-    </div>
-
-    <!-- signup and login modals -->
-
+    <!-- Footer -->
     <footer class="footer bg-dark text-center text-white">
         <div class="container p-4">
             <section class="mb-4">
@@ -149,5 +164,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- Identique au footer de la page principale -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
