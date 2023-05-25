@@ -1,0 +1,31 @@
+body {
+    background: url('https://images.unsplash.com/photo-1557437996-a8c546cb2bdf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+}
+
+.navbar {
+    background: rgba(0, 0, 0, 0.7)!important;
+}
+
+.jumbotron {
+    background-color: rgba(0,0,0, 0.6);
+}
+
+.game-container {
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 50px;
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+}
