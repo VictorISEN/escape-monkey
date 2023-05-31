@@ -8,11 +8,23 @@ body {
 }
 
 .navbar {
-    background: rgba(0, 0, 0, 0.7)!important;
+    background: rgb(2, 50, 171)!important;
 }
 
 .jumbotron {
-    background-color: rgba(0,0,0, 0.6);
+    
+    background-image: url('https://cdn.discordapp.com/attachments/1106189267631362112/1113422655010373722/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    
+}
+
+.texte-background {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    text
 }
 
 .game-container {
