@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Escape Monkey</title>
+    <style>
+        #gameContainer, #builderContainer {
+            font-size: 15px;
+            white-space: pre;
+            overflow: auto;
+        }
+        #score {
+            text-align: center;
+        }
+        td {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="maze"></div>
+    </div>
+    <div id="score">Score: 0</div>
+    <hr>
+    <div id="builder">
+        Maze size: <input type="number" id="mazeSize" min="11" max="57" value="11" step="2">
+        <button onclick="initBuilder()">Create Maze</button>
+        <button onclick="saveCustomMaze()">Save Maze</button>
+        <div id="builderContainer">
+            <table id="builderTable" border="1"></table>
+        </div>
+        <div>
+            Current Tool: <span id="currentTool">🍀</span>
+            <button onclick="setCurrentTool('🍀')">Wall</button>
+            <button onclick="setCurrentTool('⬜')">Path</button>
+            <button onclick="setCurrentTool('🐒')">Monkey</button>
+            <button onclick="setCurrentTool('🍌')">Banana</button>
+            <button onclick="setCurrentTool('🚪')">Door</button>
+            <button onclick="setCurrentTool('🔄')">Teleporter</button>
+        </div>
+    </div>
+    <script>
+        // Previous game code here...
+        
+        var builderMaze;
+        var currentTool = WALL;
+
+        function setCurrentTool(tool) {
+            currentTool = tool;
+            document.getElementById('currentTool').textContent = currentTool;
+        }
+
+        function initBuilder() {
+            var size = document.getElementById('mazeSize').value;
+            builderMaze = createEmptyMaze(size, size);
+            displayBuilderMaze();
+        }
+
+        function displayBuilderMaze() {
+            var table = document.getElementById('builderTable');
+            table.innerHTML = '';
+
+            for (var i = 0; i < builderMaze.length; i++) {
+                var row = document.createElement('tr');
+                for (var j = 0; j < builderMaze[i].length; j++) {
+                    var cell = document.createElement('td');
+                    cell.textContent = builderMaze[i][j];
+                    cell.onclick = (function(i, j) {
+                        return function() {
+                            builderMaze[i][j] = currentTool;
+                            displayBuilderMaze();
+                        }
+                    })(i, j);
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+        }
+
+        function saveCustomMaze() {
+            // Replace the current game's maze with the builder maze
+            maze = builderMaze;
+            initMaze();  // Reset game with new maze
+        }
+    </script>
+</body>
+</html>
