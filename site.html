@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Escape Monkey</a>
+        <a class="navbar-brand" href="site.html">Escape Monkey</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -108,17 +108,38 @@
 </html>
 
 
-    <div class="jumbotron">
-        <div class="texte-background">
-            <h1 class="display-4">Escape Monkey</h1>
-            <p class="lead">Aidez Sinj a atteindre l'immortalité en ramassant le plus de banane ! </p>
-            <hr class="my-4">
-            <p>Connectez-vous ou inscrivez-vous pour commencer à jouer et sauver le singe.</p>
-        </div>    
-            <a class="btn btn-primary btn-lg" href="arcade.html" role="button">Jouez maintenant</a>
-        
+<div class="jumbotron">
+    <div class="texte-background">
+        <h1 class="display-4">Escape Monkey</h1>
+        <p class="lead">Aidez Sinj a atteindre l'immortalité en ramassant le plus de banane ! </p>
+        <hr class="my-4">
+        <p>Connectez-vous ou inscrivez-vous pour commencer à jouer </p>
+    </div>    
+    <a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#gameRulesModal" role="button">Jouez maintenant</a>
+</div>
 
+<!-- Modal Règles du Jeu -->
+<div class="modal fade" id="gameRulesModal" tabindex="-1" role="dialog" aria-labelledby="gameRulesModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gameRulesModalLabel">Règles du Jeu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Votre Objectif est d'aider Sinj a obtenir le plus de bananes possible</p>
+                <p>Vous pouvez utiliser des téléporteurs pour vous aider à aller plus vite </p>
+                <p>La difficulté augmente au fur et à mesure que vous resolvez les labyrinthes</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <a type="button" class="btn btn-primary" href="arcade.html">Commencer le jeu</a>
+            </div>
+        </div>
     </div>
+</div>
 
    
 
