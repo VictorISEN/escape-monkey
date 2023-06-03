@@ -50,7 +50,7 @@ function test_input($data)
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form class="form" method="POST" action="login.php">
                         <div class="form-group">
                             <label for="loginEmail">Adresse Email</label>
                             <input type="email" name="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Entrez votre email">

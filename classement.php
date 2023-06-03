@@ -1,3 +1,4 @@
+<?php error_reporting(0); session_start(); ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -37,71 +38,35 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Inscription</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Connexion</a>
-                </li>
+            <?php   
+            if(isset($_SESSION['email'])){
+                echo 'oe ma gueule';
+            } else {
+                echo '<li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Inscription</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Connexion</a>
+            </li>';
+        
+        
+
+            }
+            ?>
+                
             </ul>
         </div>
     </nav>
 
-    <!-- Modal Inscription -->
-    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signupModalLabel">Inscription</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="signupEmail">Adresse Email</label>
-                            <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Entrez votre email">
-                        </div>
-                        <div class="form-group">
-                            <label for="signupPassword">Mot de Passe</label>
-                            <input type="password" class="form-control" id="signupPassword" placeholder="Mot de passe">
-                        </div>
-                        <button type="submit" class="btn btn-primary">S'inscrire</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    
+    <?php 
+    require 'inscription.php';
 
-    <!-- Modal Connexion -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Connexion</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="loginEmail">Adresse Email</label>
-                            <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Entrez votre email">
-                        </div>
-                        <div class="form-group">
-                            <label for="loginPassword">Mot de Passe</label>
-                            <input type="password" class="form-control" id="loginPassword" placeholder="Mot de passe">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Se connecter</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Identique à la barre de navigation de la page principale -->
-
+    require 'connexion.php';
+    ?>
+        
+        <!-- Identique à la barre de navigation de la page principale -->
     <section class="container my-5">
         <div class="row">
             <div class="col-lg-12" style="height: 300px;">
