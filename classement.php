@@ -39,9 +39,11 @@
             </ul>
             <ul class="navbar-nav">
             <?php
-            if(isset($_SESSION['email'])){
-                echo $_SESSION['email']; 
-                echo '<a class="nav-link" href="deconnexion.php">deconnexion</a>';
+            if(isset($_COOKIE['email'])){
+                echo $_COOKIE['nom']; 
+                echo '<a class="nav-link" href="deconnexion.php">';
+                echo $_COOKIE['nom'];
+                echo '</a>';
             } else {
                 echo '<li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Inscription</a>

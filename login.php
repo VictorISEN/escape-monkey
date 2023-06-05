@@ -14,11 +14,12 @@ if(isset($_POST['submit'])){
         $data = $result->fetchAll();
         if ($password == $data[0]['password']){
             //faire bootscrap connexion effectuée
-            $_SESSION['email'] = $email; //session lancé sous l'id du joueur
-            echo 'caca';
+            foreach ($data['0'] as $key => $value){
+                setcookie("$key", "$value", time()+60*60*24);
+            }
             header('Location: classement.php');
         }else{
-            echo 'prout';
+
         }
 
     }
