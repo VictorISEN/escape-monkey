@@ -1,4 +1,4 @@
-<?php error_reporting(0); session_start(); ?>
+<?php error_reporting(1); session_start(); ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -38,9 +38,10 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-            <?php   
+            <?php
             if(isset($_SESSION['email'])){
-                echo 'oe ma gueule';
+                echo $_SESSION['email']; 
+                echo '<a class="nav-link" href="deconnexion.php">deconnexion</a>';
             } else {
                 echo '<li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Inscription</a>
