@@ -32,23 +32,23 @@ if (isset($_POST['score'])) {
         }
 
         // Récupérer le meilleur score actuel pour le joueur
-$selectHighScoreSQL = "SELECT High_Score FROM utilisateurs WHERE ID = $playerID";
-$result = $conn->query($selectHighScoreSQL);
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $currentHighScore = $row["High_Score"];
-    
-    // Comparer le score actuel avec le meilleur score
-    if ($score > $currentHighScore) {
-        // Mettre à jour le meilleur score dans la base de données
-        $updateHighScoreSQL = "UPDATE utilisateurs SET High_Score = $score WHERE ID = $playerID";
-        if ($conn->query($updateHighScoreSQL) === TRUE) {
-            echo "High score updated successfully";
-        } else {
-            echo "Error updating high score: " . $conn->error;
+        $selectHighScoreSQL = "SELECT High_Score FROM utilisateurs WHERE ID = $playerID";
+        $result = $conn->query($selectHighScoreSQL);
+        if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $currentHighScore = $row["High_Score"];
+        
+        // Comparer le score actuel avec le meilleur score
+        if ($score > $currentHighScore) {
+            // Mettre à jour le meilleur score dans la base de données
+            $updateHighScoreSQL = "UPDATE utilisateurs SET High_Score = $score WHERE ID = $playerID";
+            if ($conn->query($updateHighScoreSQL) === TRUE) {
+                echo "High score updated successfully";
+            } else {
+                echo "Error updating high score: " . $conn->error;
+            }
         }
     }
-}
 
 
         // Close the database connection
