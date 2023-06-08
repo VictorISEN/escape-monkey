@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['pageAvantconn'] = $_SERVER['HTTP_REFERER'];
 $servername = "localhost";
 $username = "root";
 $password = "root";
