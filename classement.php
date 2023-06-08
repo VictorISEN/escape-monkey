@@ -12,29 +12,29 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="site.html">Escape Monkey</a>
+        <a class="navbar-brand" href="site.php">Escape Monkey</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="site.html">Accueil</a>
+                    <a class="nav-link" href="site.php">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="a propos.html">À propos</a>
+                    <a class="nav-link" href="a propos.php">À propos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="classement.html">Classement</a>
+                    <a class="nav-link" href="classement.php">Classement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="regles.html">Règles du jeu</a>
+                    <a class="nav-link" href="regles.php">Règles du jeu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="FAQ.html">FAQ</a>
+                    <a class="nav-link" href="FAQ.php">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contactez-nous</a>
+                    <a class="nav-link" href="contact.php">Contactez-nous</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -158,7 +158,7 @@
                         }
                         $conn->close();
                         ?>
-                        <!-- Continuez à ajouter des rangs de joueurs ici -->
+                        
                     </tbody>
                 </table>
             </div>

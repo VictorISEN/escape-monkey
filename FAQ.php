@@ -1,3 +1,4 @@
+<?php error_reporting(1); session_start(); ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -11,90 +12,95 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="site.html">Escape Monkey</a>
+        <a class="navbar-brand" href="site.php">Escape Monkey</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="site.html">Home</a>
+                    <a class="nav-link" href="site.php">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="a propos.html">About Us</a>
+                    <a class="nav-link" href="a propos.php">À propos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="classement.html">LeaderBoard</a>
+                    <a class="nav-link" href="classement.php">Classement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="regles.html">Rules</a>
+                    <a class="nav-link" href="regles.php">Règles du jeu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="FAQ.html">FAQ</a>
+                    <a class="nav-link" href="FAQ.php">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact Us</a>
+                    <a class="nav-link" href="contact.php">Contactez-nous</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Sign In</a>
-                </li>
+            <?php
+            if(isset($_COOKIE['email'])){ 
+                
+                echo '<li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#decoModal">';
+                echo '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-openvpn" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M15.618 20.243l-2.193 -5.602a3 3 0 1 0 -2.849 0l-2.193 5.603"></path>
+                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                </svg>  ';
+                echo $_COOKIE['pseudo'];
+                echo '</a>';
+                echo '</li>';
+                
+            } else {
+                echo '<li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Inscription</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Connexion</a>
+            </li>';
+        
+        
+
+            }
+            ?>
+                
             </ul>
         </div>
     </nav>
-    <!-- Modal Inscription -->
-    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="signupEmail">Adresse Email</label>
-                            <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Entrez votre email">
-                        </div>
-                        <div class="form-group">
-                            <label for="signupPassword">Mot de Passe</label>
-                            <input type="password" class="form-control" id="signupPassword" placeholder="Mot de passe">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Sign In</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Modal Connexion -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    
+    
+    <?php 
+    require 'inscription.php';
+
+    require 'connexion.php';
+    ?>
+     <div class="modal fade" id="decoModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                    <h5 class="modal-title" id="loginModalLabel">Account</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                <form class="form" method="POST" action="deconnexion.php">
                         <div class="form-group">
-                            <label for="loginEmail">Adresse Email</label>
-                            <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Entrez votre email">
+                            <label for="loginEmail">Name: <?php echo $_COOKIE['nom']; ?></label>
                         </div>
                         <div class="form-group">
-                            <label for="loginPassword">Mot de Passe</label>
-                            <input type="password" class="form-control" id="loginPassword" placeholder="Mot de passe">
+                            <label for="loginEmail">Surname : <?php echo $_COOKIE['prenom']; ?></label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Sign In</button>
-                    </form>
+                        <div class="form-group">
+                            <label for="loginPassword">Email : <?php echo $_COOKIE['email']; ?></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Highscore : <?php echo $_COOKIE['High_Score'];?></label>
+                        </div>
+                        <button type="submit" value="submit" name="submit" class="btn btn-primary">Deconnexion</button>
+                        <span class="error">* <?php echo $passwordErr;?></span><br>
                 </div>
             </div>
         </div>

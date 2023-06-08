@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
             foreach ($data['0'] as $key => $value){
                 setcookie("$key", "$value", time()+60*60*24);
             }
-            header('Location: classement.php');
+            header('Location: ' . $_SESSION['pageAvantconn']);
         }else{
 
         }
