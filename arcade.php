@@ -1,4 +1,19 @@
 <?php error_reporting(1); session_start(); ?>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "escape_monkey";
+
+// Créer la connexion
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+  die("La connexion a échoué: " . $conn->connect_error);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +23,11 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="site.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/17e733a281.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+        $.noConflict();
+        // Your custom JavaScript code that uses jQuery can follow here
+        </script>
         <title>Escape Monkey</title>
 
     <style>
@@ -245,12 +265,71 @@
                 score -= 1;
                 moveCounter = 0;
             }
+            
+            
+
 
             document.getElementById("score").textContent = "Score: " + score + " | Niveau: " + (currentMazeIndex + 1);
             maze[monkeyPosition.y][monkeyPosition.x] = PATH;
             monkeyPosition.x = newX;
             monkeyPosition.y = newY;
             displayMaze(maze, mazeSizes[currentMazeIndex] - 2, mazeSizes[currentMazeIndex] - 2);
+            const updateScore = async (score) => {
+                try {
+                    const response = await fetch('update_score.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `score=${score}`,
+                    });
+
+                    if (response.ok) {
+                    console.log('Score updated successfully');
+                    } else {
+                    console.error('Error updating score:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error updating score:', error);
+                }
+                };
+
+                // Usage: Call the `updateScore` function passing the score value
+                updateScore(score);
+
+            <?php 
+            if(isset($_COOKIE['ID'])){
+                $playerID = $_COOKIE['ID'];
+
+                // Récupérer le score actuel
+                $currentScore = $_POST['score'];// Votre méthode pour obtenir le score actuel
+                echo $currentScore;
+
+                // Mettre à jour le score dans la base de données
+                $updateScoreSQL = "UPDATE utilisateurs SET Score = $currentScore WHERE ID = $playerID";
+                $conn->query($updateScoreSQL);
+                
+                // Récupérer le meilleur score
+                $updateHighScoreSQL = "UPDATE utilisateurs SET High_Score = $currentScore WHERE ID = $playerID";
+                $conn->query($updateHighScoreSQL);
+                
+                $highScoreSQL = "SELECT High_Score FROM utilisateurs WHERE ID = $playerID";
+                $result = $conn->query($highScoreSQL);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        $highScore = $row["High_Score"];
+                    }
+                }
+
+                // Comparer le score actuel avec le meilleur score
+                
+                    // Mettre à jour le meilleur score dans la base de données
+                
+                $updateHighScoreSQL = "UPDATE utilisateurs SET High_Score = $currentScore WHERE ID = $playerID";
+                $conn->query($updateHighScoreSQL);
+                
+            }
+            ?>
         }
 
         function initMaze(){
