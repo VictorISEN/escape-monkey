@@ -53,10 +53,10 @@
                 
             } else {
                 echo '<li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Inscription</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Sign up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Connexion</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log in</a>
             </li>';
         
         

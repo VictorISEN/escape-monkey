@@ -53,22 +53,22 @@ if ($conn->connect_error) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="site.php">Accueil</a>
+                    <a class="nav-link" href="site.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="a propos.php">À propos</a>
+                    <a class="nav-link" href="a propos.php">About us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="classement.php">Classement</a>
+                    <a class="nav-link" href="classement.php">Ranking</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="regles.php">Règles du jeu</a>
+                    <a class="nav-link" href="regles.php">Rules</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="FAQ.php">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contactez-nous</a>
+                    <a class="nav-link" href="contact.php">Contact us</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -88,10 +88,10 @@ if ($conn->connect_error) {
                 
             } else {
                 echo '<li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Inscription</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Sign up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Connexion</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log in</a>
             </li>';
         
         
