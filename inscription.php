@@ -1,5 +1,7 @@
 
-<?php session_start(); ?>
+<?php session_start(); 
+$_SESSION['pageAvantinsc'] = $_SERVER['HTTP_REFERER'];
+?>
 
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

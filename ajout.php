@@ -24,6 +24,7 @@ if(isset($_POST["envoyer"])){
                 echo "Ajout termine";
             } 
 			$conn= NULL;
+			header('Location: ' . $_SESSION['pageAvantinsc']);
 		}                 
 		catch(Exception $e){
 			die("Erreur : " . $e->getMessage());
